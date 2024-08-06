@@ -14,7 +14,7 @@ import welcomeImage from '@/assets/welcomeImage.jpg'
 
       <div id="right-card">
         <router-view v-slot="{ Component }">
-          <component :is="Component" style="height: 100%;"/>
+          <component :is="Component" style="height: 100%"/>
         </router-view>
       </div>
     </div>
@@ -31,7 +31,7 @@ import welcomeImage from '@/assets/welcomeImage.jpg'
 
   #right-card{
     z-index: 1;
-    background-color: var(--el-bg-color-page);
-    width: 20%;
+    background-color: var(--el-bg-color);
+    width: 24%;
   }
 </style>
