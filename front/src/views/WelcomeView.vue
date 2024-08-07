@@ -14,7 +14,9 @@ import welcomeImage from '@/assets/welcomeImage.jpg'
 
       <div id="right-card">
         <router-view v-slot="{ Component }">
-          <component :is="Component" style="height: 100%"/>
+          <transition name="el-fade-in-linear">
+            <component :is="Component" style="height: 100%"/>
+          </transition>
         </router-view>
       </div>
     </div>

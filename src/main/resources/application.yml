@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: vue-admin-template
+
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: development
+    password: crushonZYY1314!
+    url: jdbc:mysql://rm-bp18ho13039kl0if1bo.mysql.rds.aliyuncs.com:3306/development?useSSL=true&serverTimezone=Asia/Shanghai
+server:
+  servlet:
+    context-path: /api

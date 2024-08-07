@@ -24,6 +24,33 @@ const router = createRouter({
                     component: () => import('@/views/welcome/ForgetPage.vue')
                 }
             ]
+        },
+        {
+            path: '/dashboard',
+            name: 'dashboard',
+            component: () => import('@/views/DashboardView.vue'),
+            children: [
+                {
+                    path: 'playerList',
+                    name: 'dashboard-playerList',
+                    component: () => import('@/views/dashboard/PlayerList.vue')
+                },
+                {
+                    path: 'ban',
+                    name: 'dashboard-ban',
+                    component: () => import('@/views/dashboard/Ban.vue')
+                },
+                {
+                    path: 'whiteList',
+                    name: 'dashboard-whiteList',
+                    component: () => import('@/views/dashboard/WhiteList.vue')
+                },
+                {
+                    path: '',
+                    name: 'dashboard-index',
+                    component: () => import('@/views/dashboard/IndexPage.vue')
+                }
+            ]
         }
     ]
 })
