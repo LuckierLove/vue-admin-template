@@ -1,8 +1,7 @@
 package icu.moondrinkwind.vueadmintemplate.mapper
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper
-import icu.moondrinkwind.vueadmintemplate.entity.User
-import org.apache.ibatis.annotations.Insert
+import icu.moondrinkwind.vueadmintemplate.entity.dto.User
 import org.apache.ibatis.annotations.Mapper
 
 @Mapper

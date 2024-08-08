@@ -8,6 +8,23 @@ spring:
     username: development
     password: crushonZYY1314!
     url: jdbc:mysql://rm-bp18ho13039kl0if1bo.mysql.rds.aliyuncs.com:3306/development?useSSL=true&serverTimezone=Asia/Shanghai
+
+  mail:
+    host: smtp.163.com
+    username: luckierlove@163.com
+    password: BXLZKVXCPCAHCXUA
+    port: 465
+    protocol: smtp
+  data:
+    redis:
+      host: localhost
+      database: 0
+      port: 6379
+  web:
+    verify:
+      mail-limit: 60
+      mail-time: 5
+
 server:
   servlet:
     context-path: /api
