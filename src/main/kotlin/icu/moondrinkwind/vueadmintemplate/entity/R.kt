@@ -1,4 +1,4 @@
-package icu.moondrinkwind.vueadmintemplate.entity.vo
+package icu.moondrinkwind.vueadmintemplate.entity
 
 import com.alibaba.fastjson2.JSONObject
 import com.alibaba.fastjson2.JSONWriter
