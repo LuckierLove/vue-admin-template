@@ -3,6 +3,7 @@ package icu.moondrinkwind.vueadmintemplate.controller
 import cn.hutool.core.util.IdUtil
 import icu.moondrinkwind.vueadmintemplate.entity.R
 import icu.moondrinkwind.vueadmintemplate.entity.dto.User
+import icu.moondrinkwind.vueadmintemplate.entity.vo.request.EmailRegisterVO
 import icu.moondrinkwind.vueadmintemplate.service.UserService
 import jakarta.annotation.Resource
 import jakarta.servlet.http.HttpServletRequest
@@ -44,11 +45,16 @@ class UserController {
         @Pattern(regexp = "(register|reset)")
         type: String,
         request: HttpServletRequest
-    ) = this.messageHandle { userService.registerEmailVerifiedCode(type, email, request.remoteAddr)!! }
+    ) = this.messageHandle { userService.registerEmailVerifiedCode(type, email, request.remoteAddr) }
 
+    @PostMapping("/register")
+    fun register(@RequestBody vo: EmailRegisterVO)
+    = this.messageHandle {
+            userService.registerEmailUser(vo)
+    }
 
-    private fun messageHandle(action: Supplier<String>): R<String>{
-        val message: String = action.get()
-        return if(message == null) R.success(message) else R.failed(message)
+    private fun messageHandle(action: Supplier<String?>): R<out String?> {
+        val message: String? = action.get()
+        return if(message == null) R.success() else R.failed(message)
     }
 }

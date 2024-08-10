@@ -12,17 +12,17 @@ import com.alibaba.fastjson2.JSONWriter
  */
 class R<T> private constructor(
     var code: Int, // 状态码
-    var message: String, // 返回消息
-    var data: T // 返回数据
+    var message: String?, // 返回消息
+    var data: T? // 返回数据
 ) {
 
     companion object{
         fun success(): R<Nothing?> = R(200, "success", null)
         fun <T> success(data: T): R<T> = R(200, "success", data)
-        fun <T> success(data: T, message: String): R<T> = R(200, message, data)
+        fun <T> success(data: T, message: String?): R<T> = R(200, message, data)
         fun failed(): R<Nothing?> = R(201, "failed", null)
         fun <T> failed(data: T): R<T> = R(201, "failed", data)
-        fun <T> failed(data: T, message: String): R<T> = R(201, message, data)
+        fun <T> failed(data: T, message: String?): R<T> = R(201, message, data)
     }
 
     /**

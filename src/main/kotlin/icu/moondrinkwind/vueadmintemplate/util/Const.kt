@@ -11,5 +11,7 @@ class Const{
         // 邮件验证码
         const val VERIFY_EMAIL_LIMIT: String = "verify:email:limit:"
         const val VERIFY_EMAIL_DATA: String = "verify:email:data:"
+
+        const val ROLE_DEFAULT: String = "user"
     }
 }
