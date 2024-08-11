@@ -10,7 +10,7 @@ import com.alibaba.fastjson2.JSONWriter
  * @param message 其他消息
  * @param T 响应数据类型
  */
-class R<T> private constructor(
+data class R<T>constructor(
     var code: Int, // 状态码
     var message: String?, // 返回消息
     var data: T? // 返回数据

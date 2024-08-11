@@ -15,10 +15,10 @@ import org.springframework.stereotype.Component
 @RabbitListener(queues = ["mail"])
 class MailQueueListener {
     @Resource
-    lateinit var sender: JavaMailSender
+    private lateinit var sender: JavaMailSender
 
     @Value("\${spring.mail.username}")
-    lateinit var username: String
+    private lateinit var username: String
 
     /**
      * 处理邮件发送

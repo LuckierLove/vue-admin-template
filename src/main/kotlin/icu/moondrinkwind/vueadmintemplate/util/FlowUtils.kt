@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 @Component
 class FlowUtils {
     @Resource
-    lateinit var template: StringRedisTemplate
+    private lateinit var template: StringRedisTemplate
 
     /**
      * 针对单次频率限制，请求成功后，在冷却时间内不得再次进行请求
@@ -49,6 +49,23 @@ class FlowUtils {
             return true
         }
     }
+
+    /**
+     * 针对单次频率限制，请求成功后，在冷却时间内不得再次请求
+     * 否则将延长封禁时间
+     * @param key 键
+     * @param frequency 请求频率
+     * @param baseTime 基础请求时间
+     * @param upgradeTime 升级限制时间
+     * @return 是否通过限流检查
+     */
+    fun limitOnceUpgradeCheck(key: String, frequency: Int, baseTime: Int, upgradeTime: Int) =
+        this.internalCheck(key, frequency, baseTime, object : LimitAction{
+            override fun run(overclock: Boolean): Boolean {
+                if(overclock) template.opsForValue().set(key, "1", upgradeTime.toLong(), TimeUnit.SECONDS)
+                return false
+            }
+        })
 
 
     /**

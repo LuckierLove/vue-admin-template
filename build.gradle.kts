@@ -27,6 +27,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3")
+    implementation ("com.auth0:java-jwt:4.4.0")
     implementation("cn.hutool:hutool-all:5.8.26")
     implementation ("com.baomidou:mybatis-plus-boot-starter:3.5.7")
     implementation("com.alibaba.fastjson2:fastjson2-kotlin:2.0.52")

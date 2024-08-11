@@ -27,19 +27,19 @@ class UserServiceImpl: ServiceImpl<UserMapper, User>(),UserService {
 
     // 验证邮件发送冷却时间 秒作为单位
     @Value("\${spring.web.verify.mail-limit}")
-    var verifyLimit: Int = 0
+    private var verifyLimit: Int = 0
 
     @Resource
-    lateinit var stringRedisTemplate: StringRedisTemplate
+    private lateinit var stringRedisTemplate: StringRedisTemplate
 
     @Resource
-    lateinit var rabbitTemplate: AmqpTemplate
+    private lateinit var rabbitTemplate: AmqpTemplate
 
     @Resource
-    lateinit var flow: FlowUtils
+    private lateinit var flow: FlowUtils
 
     @Resource
-    lateinit var passwordEncoder: PasswordEncoder
+    private lateinit var passwordEncoder: PasswordEncoder
 
 
     /**

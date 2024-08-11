@@ -20,7 +20,7 @@ import java.util.function.Supplier
 @RequestMapping("/user")
 class UserController {
     @Resource
-    lateinit var userService: UserService
+    private lateinit var userService: UserService
 
     @PostMapping("/add")
     @Transactional
