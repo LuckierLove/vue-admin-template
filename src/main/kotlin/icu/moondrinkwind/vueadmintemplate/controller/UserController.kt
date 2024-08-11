@@ -18,6 +18,7 @@ import java.util.function.Supplier
  */
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = ["http://localhost:5173"])
 class UserController {
     @Resource
     private lateinit var userService: UserService
@@ -55,6 +56,6 @@ class UserController {
 
     private fun messageHandle(action: Supplier<String?>): R<out String?> {
         val message: String? = action.get()
-        return if(message == null) R.success() else R.failed(message)
+        return if(message == null) R.success() else R.failed( null, message)
     }
 }

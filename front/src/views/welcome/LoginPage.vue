@@ -1,7 +1,3 @@
-<script setup>
-import {Lock, User} from "@element-plus/icons-vue";
-</script>
-
 <template>
   <div style="text-align: center; margin: 0 20px">
     <div style="margin-top: 150px">
@@ -53,7 +49,7 @@ import {Lock, User} from "@element-plus/icons-vue";
       </div>
 
       <div>
-        <el-button style="width: 270px" type="warning" plain>注册账号</el-button>
+        <el-button @click="router.push('/register')"  style="width: 270px" type="warning" plain>注册账号</el-button>
       </div>
     </div>
   </div>
@@ -61,3 +57,8 @@ import {Lock, User} from "@element-plus/icons-vue";
 
 <style scoped>
 </style>
+
+<script setup>
+import {Lock, User} from "@element-plus/icons-vue";
+import router from '@/router'
+</script>
